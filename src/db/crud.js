@@ -29,7 +29,7 @@ async function listLeads() {
 async function getLead(id) {
   const db = await clients.getDrizzleDbClient();
   const result = await db
-    .select({ id: schemas.LeadTable.id })
+    .select()
     .from(schemas.LeadTable)
     .where(eq(schemas.LeadTable.id, id));
   if (result.length === 1) {
